@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boleta de Pago</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background: white;
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      width: 120px;
+      object-fit: contain;
+    }
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+    .section {
+      margin-bottom: 15px;
+    }
+    .label {
+      font-weight: bold;
+      display: inline-block;
+      width: 180px;
+    }
+    .codes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .codes img {
+      max-width: 200px;
+      height: auto;
+    }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{{logo}}" class="logo" alt="Logo empresa" />
+      <img src="{{foto}}" class="profile-pic" alt="Foto empleado" />
+    </div>
+
+    <h2>🧾 Boleta de Pago Mensual</h2>
+
+    <div class="section"><span class="label">Nombre:</span> {{nombre}}</div>
+    <div class="section"><span class="label">Código de Empleado:</span> {{codigoEmpleado}}</div>
+    <div class="section"><span class="label">Puesto:</span> {{puesto}}</div>
+    <div class="section"><span class="label">Departamento:</span> {{departamento}}</div>
+    <div class="section"><span class="label">Fecha de Ingreso:</span> {{fechaIngreso}}</div>
+    <div class="section"><span class="label">Salario Base:</span> {{salario}}</div>
+    <div class="section"><span class="label">Deducciones:</span> {{deducciones}}</div>
+    <div class="section"><span class="label">Método de Pago:</span> {{metodoPago}}</div>
+    <div class="section"><span class="label">Fecha de Emisión:</span> {{fecha}}</div>
+    <hr>
+    <div class="section"><span class="label">Total a Pagar:</span> <strong>{{totalPagar}}</strong></div>
+
+    <div class="codes">
+      <div>
+        <p><strong>QR:</strong></p>
+        <img src="{{qrImage}}" alt="Código QR"/>
+      </div>
+      <div>
+        <p><strong>Código de Barras:</strong></p>
+        <img src="{{barcodeImage}}" alt="Código de Barras"/>
+      </div>
+    </div>
+
+    <div class="footer">
+      Este documento fue generado automáticamente por el sistema de reportes de la empresa.
+    </div>
+  </div>
+</body>
+</html>
