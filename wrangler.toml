@@ -1,0 +1,7 @@
+name = "report-service"
+type = "webpack"  # O usa "javascript" si usas bundle manual
+account_id = "TU_ACCOUNT_ID"
+workers_dev = true
+compatibility_date = "2025-04-09"
+node_compat = true
+main = "dist/main.js"
