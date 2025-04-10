@@ -1,22 +1,20 @@
-# Etapa de construcción
-FROM node:23.11.0-alpine AS builder
+# Usa una imagen base con Node.js
+FROM node:23.11.0
 
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
+
+# Copia los archivos de configuración
 COPY package*.json ./
+
+# Instala dependencias
 RUN npm install
+
+# Copia todo el código fuente incluyendo las plantillas
 COPY . .
-RUN npm run build
 
-# Etapa de producción
-FROM node:23.11.0-alpine
-
-WORKDIR /app
-
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./
-
-ENV PORT=3000
+# Expone el puerto que usa NestJS
 EXPOSE 3000
 
-CMD ["node", "dist/main"]
+# Comando para ejecutar la app
+CMD ["npm", "run", "start:prod"]

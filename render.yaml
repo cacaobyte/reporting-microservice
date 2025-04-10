@@ -1,12 +1,13 @@
 services:
   - type: web
-    name: report-service
+    name: reporting-microservice
     env: docker
     plan: free
     autoDeploy: true
-    branch: master
+    dockerContext: .
     dockerfilePath: ./Dockerfile
-    buildFilter:
-      paths:
-        - Dockerfile
-        - render.yaml
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
