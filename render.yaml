@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: report-service
+    env: docker
+    plan: free
+    autoDeploy: true
+    branch: master
+    dockerfilePath: ./Dockerfile
+    buildFilter:
+      paths:
+        - Dockerfile
+        - render.yaml

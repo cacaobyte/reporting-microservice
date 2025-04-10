@@ -1,5 +1,5 @@
 name = "report-service"
-main = "dist/main.js"
+main = "dist/main.js"  
 compatibility_date = "2025-04-09"
 compatibility_flags = ["nodejs_compat"]
 
