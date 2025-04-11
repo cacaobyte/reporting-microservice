@@ -1,20 +1,23 @@
 # Usa una imagen base con Node.js
 FROM node:23.11.0
 
-# Establece el directorio de trabajo dentro del contenedor
+# Crea un directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos de configuración
+# Copia los archivos de definición del proyecto
 COPY package*.json ./
 
 # Instala dependencias
 RUN npm install
 
-# Copia todo el código fuente incluyendo las plantillas
+# Copia todo el código fuente (incluye /src y templates)
 COPY . .
 
-# Expone el puerto que usa NestJS
+# Compila el proyecto NestJS a JavaScript
+RUN npm run build
+
+# Expone el puerto
 EXPOSE 3000
 
-# Comando para ejecutar la app
+# Inicia la aplicación
 CMD ["npm", "run", "start:prod"]
